@@ -168,7 +168,6 @@
       const myAirports = new FeatureLayer({
       url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/My_Airports_cmm/FeatureServer",
       renderer: airportRenderer2,
-      labelingInfo: [myairportsLabels] //adding the labels
         //adding the popup here
       outFields: ["AirportCode"],});
 
@@ -180,8 +179,7 @@
 
 
       // Add a label to your myAirport showing the Airport code.
-      //const to make the airport labels
-const myairportsLabels = {
+      const myairportsLabels = {
   symbol: {
     type: "text",
     color: "#FFFFFF",
@@ -196,9 +194,15 @@ const myairportsLabels = {
   },
   labelPlacement: "above-center",
   labelExpressionInfo: {
-    expression: "$feature.Loc_Id"
+    expression: "$feature.Loc_Id" // $feature.Loc_Id 
   }
 };
+const myAirports = new FeatureLayer({
+  url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/My_Airports_cmm/FeatureServer",
+  renderer: airportRenderer2,
+  labelingInfo: [myairportsLabels], // Set the labels
+  outFields: ["Loc_Id"],
+});
 
       
  
