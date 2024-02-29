@@ -165,26 +165,64 @@
       }
         
        //adding the const for the feature layer
-      const myAirports = new FeatureLayer({
-      url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/My_Airports_cmm/FeatureServer",
-      renderer: airportRenderer2,  
-      labelingInfo: [myairportsLabels], // Set the labels
-      outFields: ["Loc_Id"],
+      //const myAirports = new FeatureLayer({
+      //url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/My_Airports_cmm/FeatureServer",
+      //renderer: airportRenderer2,  
+      //labelingInfo: [myairportsLabels], // Set the labels
+     // outFields: ["Loc_Id"],
         //adding the popup here
-      outFields: ["AirportCode"],});
+     // outFields: ["AirportCode"],});
 
         //adding the feature layer to the map
-      map.add(myAirports);
+     // map.add(myAirports);
      
 
 
 
 
-      // Add a label to your myAirport showing the Airport code.
-      
+      // Challenge 2: Add a label to your myAirport showing the Airport code.
+      // Define the labels for the myAirports layer
+const myairportsLabels = {
+  symbol: {
+    type: "text",
+    color: "#FFFFFF",
+    haloColor: "#5E8D74",
+    haloSize: "2px",
+    font: {
+      size: "12px",
+      family: "Noto Sans",
+      style: "italic",
+      weight: "normal"
+    }
+  },
+  labelPlacement: "above-center",
+  labelExpressionInfo: {
+    expression: "$feature.Loc_Id" // Assuming AirportCode is the field with the airport codes
+  }
+};
+
+// Add the labels to the myAirports layer
+myAirports.labelingInfo = [myairportsLabels];
+      // Define the labels for the myAirports layer
+      const myAirports = new FeatureLayer({
+  url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/My_Airports_cmm/FeatureServer",
+  renderer: airportRenderer2,  
+  labelingInfo: [myairportsLabels], // Set the labels
+  outFields: ["Loc_Id", "AirportCode"], // Include AirportCode in the outFields array
+});
+
+
+// Add the labels to the myAirports layer
+myAirports.labelingInfo = [myairportsLabels];
+
+
 
 
       
+
+
+
+      /////end challenge
  
         // Set the point layer's LayerInfo (it means: the only layer we want to be editable is myAirports)
         const pointInfos = {
