@@ -158,6 +158,31 @@
         //adding the feature layer to the map
         map.add(airportLayer);
 
+// Challenge 2: Add a label to your myAirport showing the Airport code.
+   
+// Import the LabelClass
+const LabelClass = require("esri/layers/support/LabelClass");
+
+// Define the label class
+const labelClass = new LabelClass({
+  labelExpressionInfo: { expression: "$feature.AirportCode" }, //change feature??
+  symbol: {
+    type: "text",
+    color: "black",
+    haloColor: "white",
+    haloSize: "2px",
+    font: {
+      size: 12,
+      weight: "bold"
+    }
+  }
+});
+
+
+
+      /////end challenge
+
+      
    // Challenge 1 - Change the symbol for your myAirports layer to an icon.
         //setting up the icon
         const airportRenderer2 = {
@@ -187,34 +212,7 @@
 
 
 
-      // Challenge 2: Add a label to your myAirport showing the Airport code.
-   
-// Import the LabelClass
-const LabelClass = require("esri/layers/support/LabelClass");
-
-// Define the label class
-const labelClass = new LabelClass({
-  labelExpressionInfo: { expression: "$feature.AirportCode" }, //change feature??
-  symbol: {
-    type: "text",
-    color: "black",
-    haloColor: "white",
-    haloSize: "2px",
-    font: {
-      size: 12,
-      weight: "bold"
-    }
-  }
-});
-
-
-
-// Add the layer to the map
-map.add(myAirports);
-
-
-
-      /////end challenge
+      
 
 
       //// Challenge 3: Create a legend
