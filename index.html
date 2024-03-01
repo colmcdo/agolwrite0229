@@ -28,10 +28,13 @@
       // adding editor widget
       "esri/widgets/Editor",
 
-      /// CHALLENGE TAKE OUT IF ACTING UP
-      "esri/widgets/Legend"
+      // CHALLENGE 2 LABELLING
+      "esri/layers/support/LabelClass",
 
-    ], function (esriConfig, Map, MapView, Graphic, GraphicsLayer, FeatureLayer, Editor, Legend) {
+      /// CHALLENGE 3 LEGEND 
+      "esri/widgets/Legend"
+////////////////////////////////////////////////////////////////////////////////if wrong, take labelclass out below
+    ], function (esriConfig, Map, MapView, Graphic, GraphicsLayer, FeatureLayer, Editor, LabelClass, Legend) {
 
       esriConfig.apiKey = "AAPK9decdd6558d24937ac6614a6238a4349xJI9Du-3z4SyrQbfMmyLq4QXJjnxMWHpXGYgRVkG2Zj30pXtLr7MOAzKvkUj6KeH";
       const map = new Map({
@@ -173,7 +176,9 @@
  
     
         //adding the popup here
-     outFields: ["AirportCode"]});
+     outFields: ["AirportCode"]
+     //CHALLENGE 2 REMOVE BELOW
+     labelingInfo: [labelClass]});
 
         //adding the feature layer to the map
       map.add(myAirports);
@@ -184,11 +189,28 @@
 
       // Challenge 2: Add a label to your myAirport showing the Airport code.
    
+// Import the LabelClass
+const LabelClass = require("esri/layers/support/LabelClass");
+
+// Define the label class
+const labelClass = new LabelClass({
+  labelExpressionInfo: { expression: "$feature.AirportCode" }, //change feature??
+  symbol: {
+    type: "text",
+    color: "black",
+    haloColor: "white",
+    haloSize: "2px",
+    font: {
+      size: 12,
+      weight: "bold"
+    }
+  }
+});
 
 
 
-
-      
+// Add the layer to the map
+map.add(myAirports);
 
 
 
