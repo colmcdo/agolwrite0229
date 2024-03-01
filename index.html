@@ -167,11 +167,10 @@
        //adding the const for the feature layer
       const myAirports = new FeatureLayer({
       url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/My_Airports_cmm/FeatureServer",
-      renderer: airportRenderer2,  
-      labelingInfo: [myairportsLabels], // Set the labels
-      outFields: ["Loc_Id"],
+ 
+    
         //adding the popup here
-     outFields: ["AirportCode"],});
+     outFields: ["AirportCode"]});
 
         //adding the feature layer to the map
       map.add(myAirports);
