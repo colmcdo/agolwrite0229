@@ -191,6 +191,28 @@
 
       /////end challenge
 
+
+      //// Challenge 3: Create a legend
+        // Import the Legend class
+const Legend = require("esri/widgets/Legend");
+
+// Create a new Legend instance
+const legend = new Legend({
+  view: view,
+  layerInfos: [{
+    layer: myAirports,
+    title: "My Airports"
+  }]
+});
+
+// Add the legend to the view's UI
+view.ui.add(legend, "bottom-right");
+
+
+
+
+      /// end challenge
+
  
         // Set the point layer's LayerInfo (it means: the only layer we want to be editable is myAirports)
         const pointInfos = {
