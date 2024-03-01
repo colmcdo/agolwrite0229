@@ -143,10 +143,10 @@
           expression: "$feature.Fac_Name"
         }
       };
-// Challenge 2: Add a label to your myAirport showing the Airport code.
-   
 
-// Define the label class
+
+// Challenge 2: Add a label to your myAirport showing the Airport code.
+   // Define the label class
 const labelClass = new LabelClass({
   labelExpressionInfo: { expression: "$feature.AirportCode" }, //change feature??
   symbol: {
@@ -155,8 +155,8 @@ const labelClass = new LabelClass({
     haloColor: "white",
     haloSize: "2px",
     font: {
-      size: 12,
-      weight: "bold"
+      size: 10,
+      weight: "normal"
     }
   }
 });
@@ -173,13 +173,7 @@ const labelClass = new LabelClass({
 
         //adding the feature layer to the map
         map.add(airportLayer);
-
-  
-
-
-
-
-      /////end challenge
+      /////end challenge 2
 
 
    // Challenge 1 - Change the symbol for your myAirports layer to an icon.
