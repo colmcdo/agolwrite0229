@@ -143,21 +143,6 @@
           expression: "$feature.Fac_Name"
         }
       };
-
-        const airportLayer = new FeatureLayer({
-          url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/US_Airports/FeatureServer",
-          renderer: airportRenderer,  //calling the icon
-
-          definitionExpression: "Fac_Type = 'AIRPORT'", //adding sql to filter for airports
-
-          labelingInfo: [airportLabels] //adding the labels 
-
-
-        });
-
-        //adding the feature layer to the map
-        map.add(airportLayer);
-
 // Challenge 2: Add a label to your myAirport showing the Airport code.
    
 
@@ -175,6 +160,22 @@ const labelClass = new LabelClass({
     }
   }
 });
+        const airportLayer = new FeatureLayer({
+          url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/US_Airports/FeatureServer",
+          renderer: airportRenderer,  //calling the icon
+
+          definitionExpression: "Fac_Type = 'AIRPORT'", //adding sql to filter for airports
+
+          labelingInfo: [airportLabels] //adding the labels 
+
+
+        });
+
+        //adding the feature layer to the map
+        map.add(airportLayer);
+
+  
+
 
 
 
@@ -200,7 +201,7 @@ const labelClass = new LabelClass({
     
         //adding the popup here
      outFields: ["AirportCode"]
-     //CHALLENGE 2 REMOVE BELOW
+     //CHALLENGE 2 *****
      labelingInfo: [labelClass]});
 
         //adding the feature layer to the map
